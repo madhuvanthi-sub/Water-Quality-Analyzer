@@ -31,11 +31,25 @@ if st.button("Analyze Water"):
         turbidity_result
     ]
     overall = classify_water(results)
-    st.subheader("Analysis Results")
-    st.write("pH:", ph_result)
-    st.write("TDS:", tds_result)
-    st.write("Hardness:", hardness_result)
-    st.write("Chloride:", chloride_result)
-    st.write("Turbidity:", turbidity_result)
+    if ph_result == "Normal":
+        st.success("pH: Normal")
+    else:
+        st.warning("pH: " + ph_result)
+    if tds_result == "Normal":
+        st.success("TDS: Normal")
+    else:
+        st.warning("TDS: " + tds_result)
+    if hardness_result == "Normal":
+        st.success("Hardness: Normal")
+    else:
+        st.warning("Hardness: " + hardness_result)
+    if chloride_result == "Normal":
+        st.success("Chloride: Normal")
+    else:
+        st.warning("Chloride: " + chloride_result)
+    if turbidity_result == "Normal":
+        st.success("Turbidity: Normal")
+    else:
+        st.warning("Turbidity: " + turbidity_result)
     st.subheader("Overall Water Quality")
     st.success(overall)
