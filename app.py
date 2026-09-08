@@ -27,3 +27,5 @@ turbidity = st.number_input(
     min_value=0.0,
     value=2.0
 )
+if st.button("Analyze Water"):
+    st.write("Analysis started...")
