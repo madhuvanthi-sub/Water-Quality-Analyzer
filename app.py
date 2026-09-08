@@ -7,6 +7,7 @@ from analyzer import (
     classify_water
 )
 import streamlit as st
+import matplotlib.pyplot as plt
 st.title("Water Quality Analyzer")
 st.write("Enter the water sample measurements.")
 col1, col2 = st.columns(2)
@@ -53,3 +54,23 @@ if st.button("Analyze Water"):
         st.warning("Turbidity: " + turbidity_result)
     st.subheader("Overall Water Quality")
     st.success(overall)
+# creating a graph
+parameters = [
+    "pH",
+    "TDS",
+    "Hardness",
+    "Chloride",
+    "Turbidity"
+]
+values = [
+    ph,
+    tds,
+    hardness,
+    chloride,
+    turbidity
+]
+fig, ax = plt.subplots()
+ax.bar(parameters, values)
+ax.set_title("Water Sample Parameters")
+ax.set_ylabel("Measured Value")
+st.pyplot(fig)
